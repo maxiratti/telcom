@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TelCom</title>
+  <link rel="shortcut icon" href="assets\img\favicon\logo-favicon.png" type="image/png">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/calesita.css">
+  <link rel="stylesheet" href="./css/contacto.css">
+  
+</head>
+
+<body>
+
+  <header>
+    <h1>TelCom Online</h1>
+    <p>¡Los mejores productos al mejor precio!</p>
+  </header>
+
+  <nav>
+    <a href="./index.html">Inicio</a>
+    <a href="./index.html#Productos">Productos</a>
+    <a href="./contacto.html">Contacto</a>
+    <a href="./error404.html">Carrito</a>
+  </nav> 
+ 
+ 
+ <section class="user-reviews">
+    <h2>Reseñas de Usuarios</h2>
+    <div class="reviews-container">
+      <!-- Reseña 1 -->
+      <div class="review">
+        <img src="assets\img\Maxi.jpg" alt="Usuario 1" class="avatar">
+        <div class="review-content">
+          <h3>Maximiliano Ratti</h3>
+          <div class="stars">★★★★★</div>
+          <p>¡Excelente producto! La atención post venta es genial.</p>
+        </div>
+      </div>
+
+      <!-- Reseña 2 -->
+      <div class="review">
+        <img src="assets\img\Vero.jpg" alt="Usuario 2" class="avatar">
+        <div class="review-content">
+          <h3>Verónica Azcoaga</h3>
+          <div class="stars">★★★★☆</div>
+          <p>Muy buenos los productos que comercializan.</p>
+        </div>
+      </div>
+    </div> 
+  </section>
+
+
+  <!-- Formulario para dejar reseña -->
+<div class="review-form-container">
+  <h2>Dejá tu opinión</h2>
+  <form class="review-form" action="./error404.html" method="post">
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+
+    <textarea name="comentario" rows="4" placeholder="Tu reseña" required></textarea>
+
+    <select name="calificacion" required>
+      <option value="" disabled selected>Calificación</option>
+      <option value="5">★★★★★ - Excelente</option>
+      <option value="4">★★★★☆ - Muy bueno</option>
+      <option value="3">★★★☆☆ - Bueno</option>
+      <option value="2">★★☆☆☆ - Regular</option>
+      <option value="1">★☆☆☆☆ - Malo</option>
+    </select>
+
+    <button type="submit">Enviar reseña</button>
+  </form>
+</div>
+
+  <!-- Botón de WhatsApp flotante -->
+  <a href="https://wa.me/3815799331" target="_blank" class="whatsapp-icon" aria-label="Chat por WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+    <footer>
+        <p>&copy; 2025 TelCom - Todos los derechos reservados - by Talento Tech</p>
+    </footer>
+
+</body>
+
+</html>
