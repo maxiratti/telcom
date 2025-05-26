@@ -15,8 +15,14 @@
 <body>
 
   <header>
+    <img id="logo" src="assets\img\logo-1-primary.png" alt="Logo TelCom">
+  <div class="header-text">
     <h1>TelCom Online</h1>
     <p>¡Los mejores productos al mejor precio!</p>
+  </div>
+
+  <div class="logo-placeholder"></div>
+
   </header>
 
   <nav>
@@ -27,52 +33,27 @@
   </nav> 
  
  
- <section class="user-reviews">
-    <h2>Reseñas de Usuarios</h2>
-    <div class="reviews-container">
-      <!-- Reseña 1 -->
-      <div class="review">
-        <img src="assets\img\Maxi.jpg" alt="Usuario 1" class="avatar">
-        <div class="review-content">
-          <h3>Maximiliano Ratti</h3>
-          <div class="stars">★★★★★</div>
-          <p>¡Excelente producto! La atención post venta es genial.</p>
-        </div>
-      </div>
+  <main class="contact-section">
+    <h2>Formulario de contacto</h2>
+    <p>Si querés saber más sobre nuestras actividades o tenés alguna consulta, escribinos.</p>
 
-      <!-- Reseña 2 -->
-      <div class="review">
-        <img src="assets\img\Vero.jpg" alt="Usuario 2" class="avatar">
-        <div class="review-content">
-          <h3>Verónica Azcoaga</h3>
-          <div class="stars">★★★★☆</div>
-          <p>Muy buenos los productos que comercializan.</p>
-        </div>
-      </div>
-    </div> 
-  </section>
+    <form action="https://formspree.io/f/mayvlzyr" method="POST" class="contact-form">
+      <label for="nombre">Nombres y Apellidos:</label>
+      <input type="text" id="nombre" name="nombre" required>
 
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
 
-  <!-- Formulario para dejar reseña -->
-<div class="review-form-container">
-  <h2>Dejá tu opinión</h2>
-  <form class="review-form" action="./error404.html" method="post">
-    <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required>
 
-    <textarea name="comentario" rows="4" placeholder="Tu reseña" required></textarea>
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
-    <select name="calificacion" required>
-      <option value="" disabled selected>Calificación</option>
-      <option value="5">★★★★★ - Excelente</option>
-      <option value="4">★★★★☆ - Muy bueno</option>
-      <option value="3">★★★☆☆ - Bueno</option>
-      <option value="2">★★☆☆☆ - Regular</option>
-      <option value="1">★☆☆☆☆ - Malo</option>
-    </select>
-
-    <button type="submit">Enviar reseña</button>
-  </form>
-</div>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </main>
+  
 
   <!-- Botón de WhatsApp flotante -->
   <a href="https://wa.me/3815799331" target="_blank" class="whatsapp-icon" aria-label="Chat por WhatsApp">

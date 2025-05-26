@@ -6,28 +6,58 @@
 
  :root {
    --primary: #f10a0a;
+   --primary-light: rgb(255, 101, 101);
+   --primary-dark: rgb(255, 0, 0); 
    --secondary: #f4f4f4;
-   --text: #333;
+   --text: #e91515;
+   --gray-medium:#d1d5db; 
  }
 
  html {
   scroll-behavior: smooth; /* Hace el scroll suave */
 }
 
+
+
  body {
    margin: 0;
-   font-family: Arial, sans-serif;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    color: var(--text);
    background-color: var(--secondary);
-
-   header {
+   line-height: 1.6;
+   min-height: 100vh;
+  }
+   
+  header {
      background-color: var(--primary);
      color: white;
      padding: 1.5rem;
-     text-align: center;
-   }
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+                  
+  }
 
-   nav {
+  #logo, .logo-placeholder {
+  height: 150px;
+  width: 150px; /* mismo ancho que el logo real */
+  padding: 0.5ex;
+}
+  
+  #logo {
+   object-fit: contain;
+  }
+
+  .header-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; /* apila el h1 y el p verticalmente */
+    align-items: center;    /* centra horizontalmente */
+    text-align: center;     /* centra el texto */
+    
+  }
+
+  nav {
      background: #333;
      display: flex;
      justify-content: center;
@@ -44,69 +74,72 @@
      }
    }
 
-   
-  section {
-    margin: auto;
-    text-align: center;
-    padding: 1rem;
+/* FORMULARIO DE INSCRIPCIÓN */
+
+.contact-section {
+  max-width: 600px;
+  margin: 4rem auto 4rem auto;
+  background: white;
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-div {
-    display: block;
-    unicode-bidi: isolate;
+.contact-section h2 {
+  margin-bottom: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--gray-medium);
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-light);
+  outline: none;
+}
+
+.contact-form button {
+  background: var(--primary-light);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: var(--primary-dark);
 }
 
 
-.reviews-container {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-}
 
-.review {
-    display: flex
-;
-    flex-direction: column;
-    align-items: center;
-    max-width: 200px;
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
-    text-align: center;
-}
-
-img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
-}
-
-.review .avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-bottom: 0.5rem;
-}
-
-.review-form-container {
-    max-width: 300px;
-    margin: auto;
-    padding: 1rem 1rem;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-form {
-    display: block;
-    margin-top: 0em;
-    unicode-bidi: isolate;
-}    
-
-   footer {
+    footer {
      background: #222;
      color: white;
      text-align: center;

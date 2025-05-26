@@ -14,13 +14,21 @@
 <body>
 
   <header>
+  <img id="logo" src="assets\img\logo-1-primary.png" alt="Logo TelCom">
+  <div class="header-text">
     <h1>TelCom Online</h1>
     <p>¡Los mejores productos al mejor precio!</p>
-  </header>
+  </div>
+
+  <div class="logo-placeholder"></div>
+
+</header>
+
 
   <nav>
     <a href="#">Inicio</a>
     <a href="#Productos">Productos</a>
+    <a href="#Reseñas">Reseñas</a>
     <a href="./contacto.html">Contacto</a>
     <a href="./error404.html">Carrito</a>
   </nav>
@@ -39,6 +47,7 @@
 
   <main>
     <h2 id="Productos">Productos destacados</h2>
+     <section class="section-fullscreen">
     <div class="product-grid">
       
       <div class="product-card">
@@ -69,6 +78,44 @@
       </div>
 
     </div>
+</section>
+    <section class="section-fullscreen">
+            <h2 id="Reseñas">Reseñas</h2>
+            <div id="reseñas">
+                <article class="card">
+                    <div class="revisor">
+                    <img src="./assets/img/Maxi.jpeg" class="foto-perfil" alt="Foto Maxi">
+                    <h3>Maximiliano </h3>
+                    </div>
+                    <div class="reseña">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>"¡Excelente producto! La atención post venta es genial. ¡Recomendado 100%!"</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="revisor">
+                    <img src="./assets/img/Vero.jpeg" class="foto-perfil" alt="Foto Vero">
+                    <h3>Verónica</h3>
+                    </div>
+                    <div class="reseña">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>"Muy buenos los productos que comercializan. Super recomendable."</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="revisor">
+                    <img src="./assets/img/Vicky.jpeg" class="foto-perfil" alt="Foto Vicky">
+                    <h3>Victoria</h3>
+                    </div>
+                    <div class="reseña">
+                    <p>⭐⭐⭐⭐</p>
+                    <p>"Seriedad y confiabilidad de una empresa 100% argentina. ¡Felicitaciones!"</p>
+                    </div>
+                </article>
+               
+            </div>
+        </section>
+
   </main>
 
   <footer>
