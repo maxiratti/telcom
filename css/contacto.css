@@ -2,26 +2,26 @@
    padding: 0;
    margin: 0;
    box-sizing: border-box;
- }
+}
 
- :root {
+:root {
    --primary: #f10a0a;
    --primary-light: rgb(255, 101, 101);
    --primary-dark: rgb(255, 0, 0); 
-   --secondary: #f4f4f4;
-   --text: #e91515;
-   --gray-medium:#d1d5db; 
- }
+   --secondary: #a4c8d8de;
+   --text: #241f1f;
+   --gray-light: #d1d5db; 
+   --gray-medium:rgb(199, 199, 199);
+   --gray-dark: rgb(110, 109, 109);
+}
 
- html {
+html {
   scroll-behavior: smooth; /* Hace el scroll suave */
 }
 
-
-
- body {
+body {
    margin: 0;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
    color: var(--text);
    background-color: var(--secondary);
    line-height: 1.6;
@@ -39,10 +39,10 @@
   }
 
   #logo, .logo-placeholder {
-  height: 150px;
-  width: 150px; /* mismo ancho que el logo real */
-  padding: 0.5ex;
-}
+      height: 150px;
+      width: 150px; 
+      padding: 0.5ex;
+  }
   
   #logo {
    object-fit: contain;
@@ -79,7 +79,7 @@
       .contact-section {
         max-width: 600px;
         margin: 4rem auto 4rem auto;
-        background: white;
+        background: var(--gray-light);
         border-radius: 14px;
         padding: 2rem 2.5rem;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -108,7 +108,7 @@
       .contact-form input,
       .contact-form textarea {
         padding: 0.75rem 1rem;
-        border: 2px solid var(--gray-medium);
+        border: 2px solid var(--gray-dark);
         border-radius: 8px;
         font-size: 1rem;
         resize: vertical;
@@ -120,22 +120,33 @@
         border-color: var(--primary-light);
         outline: none;
       }
+     
+      .btn-enviar {
+         background: var(--primary-light);
+         color: white;
+         border: none;
+         padding: 0.75rem 1.5rem;
+         border-radius: 5px;
+         cursor: pointer;
+        }
 
-      .contact-form button {
-        background: var(--primary-light);
+      .btn-enviar:hover {
+         background: var(--primary-dark); 
+      }
+
+      .btn-borrar {
+        background: var(--gray-medium);
         color: white;
         border: none;
         padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        font-size: 1.1rem;
-        font-weight: 700;
+        border-radius: 5px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
       }
 
-      .contact-form button:hover {
-        background: var(--primary-dark);
+      .btn-borrar:hover {
+        background: var(--gray-dark);
       }
+
 
 
 
@@ -146,7 +157,7 @@
      padding: 1.5rem;
      margin-top: 2.5rem;
    }
- }
+}
 
  @media (max-width: 600px) {
    body .hero h2 {
