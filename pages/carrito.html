@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito - TelCom</title>
+  <link rel="shortcut icon" href="../assets/img/favicon/logo-favicon.png" type="image/png">
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .carrito-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .carrito-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1rem;
+    }
+
+    .carrito-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-right: 1rem;
+    }
+
+    .carrito-info {
+      flex: 1;
+    }
+
+    .carrito-controles {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-control {
+      padding: 0.5rem;
+      font-size: 1rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .btn-control:hover {
+      background-color: var(--rojo-oscuro);
+    }
+
+    .total {
+      text-align: right;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .btn-vaciar {
+      margin-top: 1rem;
+      background-color: gray;
+    }
+
+    .btn-vaciar:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img id="logo" src="../assets/img/logo-1-primary.png" alt="Logo TelCom">
+    <div class="header-text">
+      <h1>Carrito de compras</h1>
+      <p>Revisá tus productos antes de pagar</p>
+    </div>
+    <div class="logo-placeholder"></div>
+  </header>
+
+  <nav>
+    <a href="../index.html">Inicio</a>
+    <a href="../index.html#Productos">Productos</a>
+    <a href="./contacto.html">Contacto</a>
+    <a href="./carrito.html">Carrito</a>
+  </nav>
+
+  <main class="carrito-container" id="carrito-container">
+    <!-- Contenido generado con JS -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TelCom - Todos los derechos reservados - by Talento Tech</p>
+  </footer>
+
+  <script>
+    const contenedor = document.getElementById("carrito-container");
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    function guardarCarrito() {
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      renderizarCarrito();
+    }
+
+    function eliminarProducto(id) {
+      carrito = carrito.filter(p => p.id !== id);
+      guardarCarrito();
+    }
+
+    function cambiarCantidad(id, delta) {
+      carrito = carrito.map(p => {
+        if (p.id === id) {
+          p.cantidad += delta;
+          if (p.cantidad < 1) p.cantidad = 1;
+        }
+        return p;
+      });
+      guardarCarrito();
+    }
+
+    function vaciarCarrito() {
+      carrito = [];
+      guardarCarrito();
+    }
+
+    function calcularTotal() {
+      return carrito.reduce((total, p) => {
+        const precio = parseFloat(p.precio.replace("$", "").replace(",", "."));
+        return total + precio * p.cantidad;
+      }, 0).toFixed(2);
+    }
+
+    function renderizarCarrito() {
+      contenedor.innerHTML = "";
+
+      if (carrito.length === 0) {
+        contenedor.innerHTML = "<p>El carrito está vacío.</p>";
+        return;
+      }
+
+      carrito.forEach(producto => {
+        const div = document.createElement("div");
+        div.classList.add("carrito-item");
+        div.innerHTML = `
+          <img src="../${producto.imagen}" alt="${producto.titulo}">
+          <div class="carrito-info">
+            <h3>${producto.titulo}</h3>
+            <p>Precio: ${producto.precio}</p>
+            <p>Cantidad: ${producto.cantidad}</p>
+          </div>
+          <div class="carrito-controles">
+            <button class="btn-control" onclick="cambiarCantidad(${producto.id}, -1)">-</button>
+            <button class="btn-control" onclick="cambiarCantidad(${producto.id}, 1)">+</button>
+            <button class="btn-control" onclick="eliminarProducto(${producto.id})">🗑️</button>
+          </div>
+        `;
+        contenedor.appendChild(div);
+      });
+
+      const totalDiv = document.createElement("div");
+      totalDiv.classList.add("total");
+      totalDiv.textContent = `Total: $${calcularTotal()}`;
+      contenedor.appendChild(totalDiv);
+
+      const btnVaciar = document.createElement("button");
+      btnVaciar.classList.add("btn-control", "btn-vaciar");
+      btnVaciar.textContent = "Vaciar carrito";
+      btnVaciar.onclick = vaciarCarrito;
+      contenedor.appendChild(btnVaciar);
+
+      const btnFinalizar = document.createElement("button");
+      btnFinalizar.classList.add("btn-control");
+      btnFinalizar.style.backgroundColor = "#28a745";
+      btnFinalizar.textContent = "Finalizar compra";
+      btnFinalizar.onclick = () => {
+        alert("¡Gracias por tu compra! Recibirás un correo con el resumen.");
+        localStorage.removeItem("carrito");
+        window.location.href = "../index.html";
+      };
+      contenedor.appendChild(btnFinalizar);
+    }
+
+    renderizarCarrito();
+  </script>
+
+</body>
+
+</html>
