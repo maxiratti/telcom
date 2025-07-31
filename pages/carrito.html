@@ -26,7 +26,6 @@
     <a href="../index.html">Inicio</a>
     <a href="../index.html#Productos">Productos</a>
     <a href="./contacto.html">Contacto</a>
-  <!--  <a href="./carrito.html">Carrito</a> -->
     <a href="./carrito.html" id="carrito-icono" class="carrito-nav">
         🛒 <span id="carrito-cantidad">0</span>
     </a>
@@ -53,6 +52,7 @@
     function eliminarProducto(id) {
       carrito = carrito.filter(p => p.id !== id);
       guardarCarrito();
+      actualizarCantidadCarrito();
     }
 
     function cambiarCantidad(id, delta) {
@@ -64,11 +64,13 @@
         return p;
       });
       guardarCarrito();
+      actualizarCantidadCarrito();
     }
 
     function vaciarCarrito() {
       carrito = [];
       guardarCarrito();
+      actualizarCantidadCarrito();
     }
 
     function calcularTotal() {
@@ -123,6 +125,7 @@
       btnFinalizar.onclick = () => {
         alert("¡Gracias por tu compra! Recibirás un correo con el resumen.");
         localStorage.removeItem("carrito");
+        actualizarCantidadCarrito();
         window.location.href = "../index.html";
       };
       contenedor.appendChild(btnFinalizar);

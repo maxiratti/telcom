@@ -53,3 +53,23 @@ function actualizarCantidadCarrito() {
     spanCantidad.textContent = total;
   }
 }
+
+// Botón volver arriba
+document.addEventListener("DOMContentLoaded", () => {
+  const btnArriba = document.getElementById("btn-volver-arriba");
+
+  // Mostrar/ocultar botón al hacer scroll
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      btnArriba.style.display = "block";
+    } else {
+      btnArriba.style.display = "none";
+    }
+  });
+
+  // Ir arriba suavemente
+  btnArriba.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
